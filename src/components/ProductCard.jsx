@@ -1,31 +1,37 @@
-import Button from "./Button";
+import CustomButton from "./CustomButton";
 import { useNavigate } from "react-router-dom";
-
+import { Card, Button } from "react-bootstrap";
 
 function ProductCard({ product }) {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleNavigate = () => {
     navigate(`/products/${product.id}`);
-  }
+  };
 
   return (
-    <div className="col-md-4 mb-4" key={product.id}>
-      <div className="card h-100">
-        <img
+    <div className="col-md-4 mb-4 key={product.id}">
+      <Card className="h-100">
+        <Card.Img
+          variant="top"
           src={product.thumbnail}
-          className="card-img-top"
           alt={product.title}
-          style={{ objectFit: "contain", height: "200px" }}
+          style={{ objetFit: "contain", height: "200px" }}
         />
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title">{product.title}</h5>
-          <p className="card-text">{product.description}</p>
+        <Card.Body className="d-flex flex-column">
+          <Card.Title>{product.title}</Card.Title>
+          <Card.Text>{product.description}</Card.Text>
           <div className="mt-auto">
-            <Button onClick={handleNavigate} style={"btn btn-primary w-100"}>Ver más</Button>
+            <Button
+              onClick={handleNavigate}
+              className="w-100"
+              variant="primary"
+            >
+              Ver Más
+            </Button>
           </div>
-        </div>
-      </div>
+        </Card.Body>
+      </Card>
     </div>
   );
 }
