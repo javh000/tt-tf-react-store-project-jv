@@ -1,19 +1,17 @@
 import Header from "../components/Header";
-import Nav from "../components/Nav";
-import Main from "../components/Main";
-import Gallery from "../components/Gallery";
+import NavbarComponent from "../components/NavbarComponent";
+import ProductList from "../components/ProductList";
 import Footer from "../components/Footer";
 
-function Home() {
+function ProductsPage() {
   return (
     <>
       <Header></Header>
-      <Nav></Nav>
-      <Main></Main>
-      <Gallery></Gallery>
+      <NavbarComponent></NavbarComponent>
+      <ProductList></ProductList>
       <Footer></Footer>
     </>
   );
 }
 
-export default Home;
+export default ProductsPage;
