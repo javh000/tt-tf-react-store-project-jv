@@ -3,12 +3,15 @@ import NavbarComponent from "../components/NavbarComponent";
 import ProductList from "../components/ProductList";
 import Footer from "../components/Footer";
 
+const url = "https://dummyjson.com/products";
+
+
 function ProductsPage() {
   return (
     <>
       <Header></Header>
       <NavbarComponent></NavbarComponent>
-      <ProductList></ProductList>
+      <ProductList url={url}></ProductList>
       <Footer></Footer>
     </>
   );
