@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useFetch from "./hooks/useFetch";
 import {
   Navbar,
@@ -10,8 +10,16 @@ import {
   Container,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CartWidget from "./CartWidget";
+import CartOffcanvas from "./CartOffcanvas";
 
 function NavbarComponent() {
+  // Estado para controlar en Offcanvas
+  const [showCart, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // Hook personalizado para obtener las categorías
   const url = "https://dummyjson.com/products/categories";
   const { data, loading, error } = useFetch(url);
   if (loading) return <p>Cargando...</p>;
@@ -19,6 +27,7 @@ function NavbarComponent() {
   if (!data?.length) return <p>No hay categorías disponibles.</p>;
 
   return (
+    <>
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
@@ -28,7 +37,7 @@ function NavbarComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
-          <div className="d-flex w-100 align-items-center">
+          <div className="d-flex w-100 align-items-center gap-3">
             <Nav>
               <NavDropdown title="Categorías" id="navbarScrollingDropdown">
                 {data.map((category) => (
@@ -67,10 +76,13 @@ function NavbarComponent() {
               />
               <Button variant="outline-success">Buscar</Button>
             </Form>
+            <CartWidget onClick={handleShow} />
           </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <CartOffcanvas show={showCart} handleClose={handleClose} />
+    </>
   );
 }
 
