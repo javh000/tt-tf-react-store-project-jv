@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
+import {useCart} from "../context/CartContext.jsx";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const handleNavigate = () => {
     navigate(`/products/${product.id}`);
@@ -20,13 +22,15 @@ function ProductCard({ product }) {
         <Card.Body className="d-flex flex-column">
           <Card.Title>{product.title}</Card.Title>
           <Card.Text>{product.description}</Card.Text>
-          <div className="mt-auto">
+          <div className="mt-auto d-grid gap-2">
+            <Button variant="success" onClick={() => addToCart(product)}>
+              Agregar al carrito
+            </Button>
             <Button
-              onClick={handleNavigate}
-              className="w-100"
               variant="primary"
+              onClick={() => navigate(`/products/${product.id}`)}
             >
-              Ver Más
+              Ver
             </Button>
           </div>
         </Card.Body>
