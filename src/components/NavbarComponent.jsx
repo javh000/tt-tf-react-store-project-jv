@@ -63,7 +63,7 @@ function NavbarComponent() {
                 Contacto
               </Nav.Link>
               <Nav.Link as={Link} to="/about" className="me-2">
-                Sobre Nosotros
+                Nosotros
               </Nav.Link>
             </Nav>
 
