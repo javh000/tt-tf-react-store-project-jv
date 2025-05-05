@@ -9,7 +9,7 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="col-md-4 mb-4 key={product.id}">
+    <div className="col-md-4 mb-4">
       <Card className="h-100">
         <Card.Img
           variant="top"
