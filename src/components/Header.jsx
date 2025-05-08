@@ -1,16 +1,16 @@
 import React from "react";
+import NavbarComponent from "./NavbarComponent";
+import { useEffect } from "react";
 
 function Header() {
+  useEffect(() => {
+    const navbarHeight = document.querySelector(".navbar").offsetHeight;
+    document.body.style.paddingTop = `${navbarHeight}px`;
+  }, []);
+
   return (
-    <header
-      style={{
-        backgroundColor: "#4CAF50",
-        padding: "10px",
-        textAlign: "center",
-        color: "white",
-      }}
-    >
-      <h1>Bienvenido a mi App React</h1>
+    <header>
+      <NavbarComponent />
     </header>
   );
 }

@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import ProductList from "../components/ProductList";
 import Header from "../components/Header";
-import NavbarComponent from "../components/NavbarComponent";
 import Footer from "../components/Footer";
 
 export default function CategoriesPage() {
@@ -13,7 +12,6 @@ export default function CategoriesPage() {
   return (
     <>
       <Header></Header>
-      <NavbarComponent></NavbarComponent>
       <ProductList url={url} title={categoryName} />;<Footer></Footer>
     </>
   );
