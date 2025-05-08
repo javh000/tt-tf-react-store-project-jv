@@ -15,28 +15,27 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product) => {
-    console.log("Producto agregado al carrito:", product);
+  const addToCart = (product, qtyToAdd = 1) => {
+    console.log("Producto agregado al carrito:", product, qtyToAdd);
     setCartItems((prev) => {
       const existingProduct = prev.find((item) => item.id === product.id);
       if (existingProduct) {
         return prev.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: item.quantity + qtyToAdd }
             : item
         );
       } else {
-        return [...prev, { ...product, quantity: 1 }];
+        return [...prev, { ...product, quantity: qtyToAdd }];
       }
     });
     Swal.fire({
       position: "top-end",
       icon: "success",
-      title: `${product.title} agregado al carrito`,   
+      title: `${product.title} agregado al carrito`,
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
     });
-
   };
 
   const removeFromCart = (productId) => {

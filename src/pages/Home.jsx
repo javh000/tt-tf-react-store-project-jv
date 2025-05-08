@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 const url = "https://dummyjson.com/products";
 
 
-function ProductsPage() {
+function Home() {
   return (
     <>
       <Header></Header>
@@ -15,4 +15,4 @@ function ProductsPage() {
   );
 }
 
-export default ProductsPage;
+export default Home;
