@@ -5,6 +5,8 @@ import DealPage from "./pages/DealPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import NewArrivalsPage from "./pages/NewArrivalsPage";
+import LoginPage from "./pages/LoginPage";
+import Dashboard from "./pages/Dashboard";
 import "./App.css";
 
 const url = "https://dummyjson.com/products/";
@@ -18,6 +20,8 @@ function App() {
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/deals" element={<DealPage url={url} />} />
         <Route path="/new-arrivals" element={<NewArrivalsPage url={url} />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <ScrollToTopButton></ScrollToTopButton>
     </div>
