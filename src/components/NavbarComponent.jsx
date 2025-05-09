@@ -10,6 +10,7 @@ import {
   Container,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink} from "react-scroll"
 import CartWidget from "./CartWidget";
 import CartOffcanvas from "./CartOffcanvas";
 import logo from "../assets/logo.svg";
@@ -68,11 +69,8 @@ function NavbarComponent() {
                 <Nav.Link as={Link} to="/new" className="me-2">
                   Novedades
                 </Nav.Link>
-                <Nav.Link as={Link} to="/contact" className="me-2">
+                <Nav.Link as={ScrollLink} to="footer" smooth={true} duration={1000} className="me-2" style={{ cursor: 'pointer' }}>
                   Contacto
-                </Nav.Link>
-                <Nav.Link as={Link} to="/about" className="me-2">
-                  Nosotros
                 </Nav.Link>
               </Nav>
 

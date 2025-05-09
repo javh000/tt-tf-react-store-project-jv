@@ -19,7 +19,7 @@ function ProductCard({ product }) {
           alt={product.title}
           style={{ height: "200px", objectFit: "contain" }}
         />
-        <Card.Body className="d-flex flex-column">
+        <Card.Body className="d-flex flex-column text-center">
           <Card.Title>{product.title}</Card.Title>
           <Card.Text>{product.description}</Card.Text>
           <div className="mt-auto d-grid gap-2">

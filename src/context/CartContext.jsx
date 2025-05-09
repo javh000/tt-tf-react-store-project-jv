@@ -35,6 +35,10 @@ export const CartProvider = ({ children }) => {
       title: `${product.title} agregado al carrito`,
       showConfirmButton: false,
       timer: 1500,
+      /*Evita que SweetAlert2 cambie height/overflow en <html> y <body>*/
+      heightAuto: false,
+      /*opcional: evita añadir padding al body cuando oculta el scrollbar */
+      scrollbarPadding: false,
     });
   };
 

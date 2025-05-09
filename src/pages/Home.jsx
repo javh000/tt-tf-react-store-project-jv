@@ -1,16 +1,15 @@
-import Header from "../components/Header";
 import ProductList from "../components/ProductList";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const url = "https://dummyjson.com/products";
 
-
 function Home() {
   return (
     <>
-      <Header></Header>
+      <Header />
       <ProductList url={url}></ProductList>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }

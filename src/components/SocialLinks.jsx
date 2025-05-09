@@ -4,7 +4,7 @@ import { ListGroup } from "react-bootstrap";
 
 export default function SocialLinks() {
 
-    const iconSize = 48;
+    const iconSize = 32;
 
   return (
     <ListGroup horizontal className="gap-4 p-0 list-unstyled justify-content-center">

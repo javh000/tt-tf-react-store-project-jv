@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, ListGroup } from "react-bootstrap";
 import Swal from "sweetalert2";
 import SocialLinks from "./SocialLinks.jsx";
+import { Element } from "react-scroll";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -16,6 +17,8 @@ export default function Footer() {
         icon: "error",
         title: "Email no válido",
         text: "Por favor ingresa un email válido",
+        heightAuto: false,
+        scrollbarPadding: false,
       });
       return;
     }
@@ -25,53 +28,65 @@ export default function Footer() {
       title: "Gracias por suscribirte",
       text: "Te hemos agregado a nuestra lista. Te enviamos un email para confirmar tu dirección.",
       confirmButtonText: "Aceptar",
+      heightAuto: false,
+      scrollbarPadding: false,
     });
 
     setEmail("");
   };
 
   return (
-    <footer className="bg-dark text-light py-5">
-      <Container>
-        <Row className="text-center">
-          <Col md={4} className="mb-4 mb-md-0">
-            <h5>Suscríbete al boletín</h5>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="newsletterEmail" className="d-flex flex-column align-items-center">
-                <Form.Control
-                  type="email"
-                  placeholder="Tu correo electrónico"
-                  className="mb-2 w-auto"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <Button variant="primary" type="submit">
-                  Subscribirse
-                </Button>
-              </Form.Group>
-            </Form>
-          </Col>
-          <Col md={4} className="mb-4 mb-md-0">
-            <h5>Datos de contacto</h5>
-            <ListGroup variant="flush">
-              <ListGroup.Item className="bg-dark text-light border-0 px-0">
-                Dirección: Calle Ejemplo, Ciudad, País
-              </ListGroup.Item>
-              <ListGroup.Item className="bg-dark text-light border-0 px-0">
-                Teléfono: +123 456 7890
-              </ListGroup.Item>
-              <ListGroup.Item className="bg-dark text-light border-0 px-0">
-                Email: contacto@tuempresa.com
-              </ListGroup.Item>
-            </ListGroup>
-          </Col>
+    <Element name="footer">
+      <footer className="bg-dark text-light py-3">
+        <Container>
+          <Row className="text-center align-items-center flex-column flex-md-row gap-3 gap-md-0">
+            <Col md={4} className="mb-2 mb-md-0">
+              <h5 className="mb-2">Redes</h5>
+              <SocialLinks />
+            </Col>
 
-          <Col md={4}>
-            <h5>Redes Sociales</h5>
-            <SocialLinks />
-          </Col>
-        </Row>
-      </Container>
-    </footer>
+            <Col md={4} className="mb-2 mb-md-0">
+              <h5 className="mb-2">Contacto</h5>
+              <ListGroup variant="flush">
+                <ListGroup.Item className="bg-dark text-light border-0 px-0 py-1">
+                  Dirección: Avenida Siempreviva 742
+                </ListGroup.Item>
+                <ListGroup.Item className="bg-dark text-light border-0 px-0 py-1">
+                  Teléfono: +54 11 123 456 78
+                </ListGroup.Item>
+                <ListGroup.Item className="bg-dark text-light border-0 px-0 py-1">
+                  Email: contacto@Novashade.com
+                </ListGroup.Item>
+              </ListGroup>
+            </Col>
+
+            <Col md={4} className="mb-2 mb-md-0">
+              <h5 className="mb-2">Suscríbete al newsletter</h5>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group
+                  controlId="newsletterEmail"
+                  className="d-flex flex-column flex-lg-row align-items-center gap-2"
+                >
+                  <Form.Control
+                    type="email"
+                    placeholder="Tu correo electrónico"
+                    className="w-100 w-md-auto mb-2 mb-md-0"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    className="w-100 w-md-auto"
+                  >
+                    Subscribirse
+                  </Button>
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
+      </footer>
+    </Element>
   );
 }

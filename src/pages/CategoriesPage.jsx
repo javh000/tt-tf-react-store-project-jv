@@ -11,8 +11,9 @@ export default function CategoriesPage() {
 
   return (
     <>
-      <Header></Header>
-      <ProductList url={url} title={categoryName} />;<Footer></Footer>
+      <Header />
+      <ProductList url={url} title={categoryName} />
+      <Footer />
     </>
   );
 }
