@@ -4,19 +4,19 @@ import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function LoginPage() {
-  const [user, setUser] = useState(""); 
+  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    if (user === "admin" && password === "admin") {
+    if (user === "admin" && password === "123") {
       localStorage.setItem("user", JSON.stringify({ user, role: "admin" }));
-      navigate("/dashboard"); 
-    } else if (user === "cliente" && password === "cliente") {
+      navigate("/dashboard");
+    } else if (user === "cliente" && password === "123") {
       localStorage.setItem("user", JSON.stringify({ user, role: "cliente" }));
-      navigate("/"); 
+      navigate("/");
     } else {
       Swal.fire({
         icon: "error",
@@ -29,7 +29,7 @@ function LoginPage() {
   return (
     <Container className="mt-5" style={{ maxWidth: "400px" }}>
       <h2 className="mb-4 text-center">Iniciar sesión</h2>
-      
+
       <Form onSubmit={handleLogin}>
         <Form.Group controlId="formUser" className="mb-3">
           <Form.Label>Usuario</Form.Label>
@@ -46,13 +46,12 @@ function LoginPage() {
           <Form.Label>Contraseña</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Contraseña (admin o cliente)"
+            placeholder="Contraseña: 123"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </Form.Group>
-
         <Button variant="success" type="submit" className="w-100 mb-3">
           Iniciar sesión
         </Button>
