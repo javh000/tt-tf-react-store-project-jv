@@ -7,7 +7,7 @@ export default function CartWidget({ onClick }) {
   const totalQty = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <Button variant="light" onClick={onClick}>
+    <Button variant="light" onClick={onClick} className="position-relative">
       <ShoppingCart size={24} />
       {totalQty > 0 && (
         <Badge
