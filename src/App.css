@@ -4,13 +4,3 @@ body,
     height: 100%;
     margin: 0;
 }
-
-.logo-size {
-    width: 120px;
-  }
-  
-  @media (min-width: 768px) {
-    .logo-size {
-      width: 200px;
-    }
-  }

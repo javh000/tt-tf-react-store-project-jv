@@ -32,8 +32,8 @@ function NavbarComponent() {
           fluid
           className="d-flex align-items-center justify-content-between"
         >
-          <Navbar.Brand as={Link} to="/">
-            <img src={logo} alt="Novashade Logo" className="img-fluid logo-size" />
+          <Navbar.Brand as={Link} to="/" style={{ width: '40%'}}>
+            <img style={{width: "100%"}} src={logo} alt="Novashade Logo" className="img-fluid logo-size" />
           </Navbar.Brand>
 
           <div className="d-flex align-items-center gap-3 order-lg-3 mx-lg-4">
