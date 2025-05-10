@@ -14,7 +14,6 @@ import { Link as ScrollLink } from "react-scroll";
 import CartWidget from "./CartWidget";
 import CartOffcanvas from "./CartOffcanvas";
 import logo from "../assets/logo.svg";
-import CartLoginGroup from "./CartLoginGroup";
 
 function NavbarComponent() {
   // Estado para controlar en Offcanvas
@@ -28,31 +27,31 @@ function NavbarComponent() {
 
   return (
     <>
-      <Navbar bg="light" expand="lg" fixed="top">
-        <Container>
+      <Navbar bg="light" expand="lg" fixed="top" className="py-2">
+        <Container
+          fluid
+          className="d-flex align-items-center justify-content-between"
+        >
           <Navbar.Brand as={Link} to="/">
-            <img src={logo} width="200" alt="Novashade Logo" />
+            <img src={logo} alt="Novashade Logo" className="img-fluid logo-size" />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          {/* <div className="d-flex d-lg-none gap-3 align-items-center ms-5">
+
+          <div className="d-flex align-items-center gap-3 order-lg-3 mx-lg-4">
             <CartWidget onClick={handleShow} />
             <Nav.Link as={Link} to="/login">
               Login
             </Nav.Link>
-          </div> */}
-          <CartLoginGroup onclick={handleShow}
-            className={"d-flex d-lg-none gap-3 align-items-center ms-5"}
-          />
-          <Navbar.Collapse id="navbarScroll">
-            <div className="d-flex w-100 align-items-center gap-3 flex-column flex-lg-row">
-              <Nav navbarScroll>
+            <Navbar.Toggle
+              aria-controls="navbarScroll"
+              className="ms-2 d-lg-none"
+            />
+          </div>
+
+          <Navbar.Collapse id="navbarScroll" className="order-lg-2 w-100">
+            <div className="d-flex flex-column flex-lg-row align-items-center justify-content-between w-100 gap-3 ms-3">
+              <Nav className="d-flex flex-column flex-lg-row align-items-center gap-3">
                 <NavDropdown title="Categorías" id="navbarScrollingDropdown">
-                  <div
-                    style={{
-                      maxHeight: "400px",
-                      overflowY: "auto",
-                    }}
-                  >
+                  <div style={{ maxHeight: "400px", overflowY: "auto" }}>
                     {loading && (
                       <NavDropdown.Item>Cargando...</NavDropdown.Item>
                     )}
@@ -77,13 +76,14 @@ function NavbarComponent() {
                     ))}
                   </div>
                 </NavDropdown>
-                <Nav.Link as={Link} to="/" className="me-2">
+
+                <Nav.Link as={Link} to="/">
                   Productos
                 </Nav.Link>
-                <Nav.Link as={Link} to="/deals" className="me-2">
+                <Nav.Link as={Link} to="/deals">
                   Ofertas
                 </Nav.Link>
-                <Nav.Link as={Link} to="/new-arrivals" className="me-2">
+                <Nav.Link as={Link} to="/new-arrivals">
                   Novedades
                 </Nav.Link>
                 <Nav.Link
@@ -91,14 +91,13 @@ function NavbarComponent() {
                   to="footer"
                   smooth={true}
                   duration={1000}
-                  className="me-2"
                   style={{ cursor: "pointer" }}
                 >
                   Contacto
                 </Nav.Link>
               </Nav>
 
-              <Form className="d-flex w-100 mb-3 mb-lg-0">
+              <Form className="d-flex w-100 w-auto">
                 <FormControl
                   type="search"
                   placeholder="Buscar"
@@ -109,17 +108,9 @@ function NavbarComponent() {
               </Form>
             </div>
           </Navbar.Collapse>
-          {/* <div className="d-none d-lg-flex gap-3 align-items-center ms-5">
-            <CartWidget onClick={handleShow} />
-            <Nav.Link as={Link} to="/login">
-              Login
-            </Nav.Link>
-          </div> */}
-          <CartLoginGroup onclick={handleShow}
-            className={"d-none d-lg-flex gap-3 align-items-center ms-5"}
-          />
         </Container>
       </Navbar>
+
       <CartOffcanvas show={showCart} handleClose={handleClose} />
     </>
   );
