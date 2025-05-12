@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { useCart } from "../context/CartContext.jsx";
 
-function ProductCard({ product, page }) {
+function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
 

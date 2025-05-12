@@ -57,7 +57,7 @@ function LoginPage() {
         </Button>
 
         <Link to="/">
-          <Button variant="primary" className="w-100">
+          <Button variant="info" className="w-100">
             Volver a la página de inicio
           </Button>
         </Link>
