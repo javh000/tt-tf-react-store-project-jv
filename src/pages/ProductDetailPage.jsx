@@ -14,6 +14,8 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useCart } from "../context/CartContext.jsx";
+import { useNavigate } from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -21,6 +23,9 @@ export default function ProductDetailPage() {
   const { data: product, loading, error } = useFetch(url);
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const fromPage = location.state?.fromPage || "/";
 
   console.log(product);
   if (loading) {
@@ -74,13 +79,20 @@ export default function ProductDetailPage() {
                     </Row>
                   </Form.Group>
                   <Button
-                    variant="primary"
+                    variant="success"
                     size="lg"
                     className="w-100"
                     onClick={() => addToCart(product, quantity)}
                   >
                     <i className="bi bi-cart-plus me-2"></i>
                     Agregar al Carrito
+                  </Button>
+                  <Button
+                    className="w-100 my-3"
+                    variant="info"
+                    onClick={() => navigate(fromPage)}
+                  >
+                    Volver
                   </Button>
                 </Col>
               </Row>

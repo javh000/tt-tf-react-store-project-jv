@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
-import {useCart} from "../context/CartContext.jsx";
+import { useCart } from "../context/CartContext.jsx";
 
-function ProductCard({ product }) {
+function ProductCard({ product, page }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
   const handleNavigate = () => {
-    navigate(`/products/${product.id}`);
+    // Capturar ruta + querystring actuales
+    const fromPage = window.location.pathname + window.location.search;
+    navigate(`/products/${product.id}`, { state: { fromPage } });
   };
 
   return (
@@ -26,10 +28,7 @@ function ProductCard({ product }) {
             <Button variant="success" onClick={() => addToCart(product)}>
               Agregar al carrito
             </Button>
-            <Button
-              variant="primary"
-              onClick={() => navigate(`/products/${product.id}`)}
-            >
+            <Button variant="info" onClick={handleNavigate}>
               Ver
             </Button>
           </div>

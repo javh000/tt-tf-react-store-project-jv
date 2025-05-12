@@ -4,10 +4,20 @@ import Spinner from "./Spinner";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
-function ProductList({ url, title = "Lista de Productos", customProducts = null }) {
+function ProductList({
+  url,
+  title = "Lista de Productos",
+  customProducts = null,
+}) {
   const limit = 15;
-  const [page, setPage] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = parseInt(searchParams.get("page")) || 0;
+
+  const goToPage = (newPage)=> {
+    setSearchParams({ page: newPage });
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -34,14 +44,14 @@ function ProductList({ url, title = "Lista de Productos", customProducts = null 
       <h1 className="mb-4 text-center">{title}</h1>
       <div className="row">
         {products.map((product) => (
-          <ProductCard product={product} key={product.id} />
+          <ProductCard product={product} key={product.id} page={page} />
         ))}
       </div>
       <div className="d-flex justify-content-center m-4 gap-5">
         <Button
           variant="primary"
           disabled={page === 0}
-          onClick={() => setPage(page - 1)}
+          onClick={() => goToPage(page - 1)}
           className="d-flex align-items-center"
         >
           <ChevronLeft /> Anterior
@@ -49,7 +59,7 @@ function ProductList({ url, title = "Lista de Productos", customProducts = null 
         <Button
           variant="primary"
           disabled={page + 1 >= totalPages}
-          onClick={() => setPage(page + 1)}
+          onClick={() => goToPage(page + 1)}
           className="d-flex align-items-center"
         >
           Siguiente <ChevronRight />
