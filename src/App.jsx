@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="d-flex flex-column h-100">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home url={url}/>} />
         <Route path="/categories/:categoryName" element={<CategoriesPage />} />
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/deals" element={<DealPage url={url} />} />
