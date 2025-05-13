@@ -7,12 +7,12 @@ function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   if (!user || user.role !== "admin") {
-    return <Navigate to="/home" />;
+    return <Navigate to="/login" />;
   }
 
   return (
     <Container className="mt-5 justify-content-center text-center">
-      <h2>En construction</h2>
+      <h2>Dashboard en construction</h2>
       <Link to="/">
           <Button variant="primary" className="w-20">
             Volver a la página de inicio

@@ -21,8 +21,8 @@ function ScrollToTopButton() {
   return visible ? (
     <Button
       onClick={scrollToTop}
-      variant="primary"
-      className="position-fixed bottom-0 end-0 m-4 rounded-circle d-flex align-items-center justify-content-center shadow"
+      variant="primary-outline"
+      className="position-fixed bottom-0 end-0 m-4 rounded-circle border-3 text-secondary border-secondary d-flex align-items-center justify-content-center shadow"
       style={{ width: "3rem", height: "3rem", zIndex: 1030 }}
     >
       <ArrowUp size={24} />
