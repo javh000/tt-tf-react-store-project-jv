@@ -10,7 +10,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CartProvider>
       <AuthProvider>
-      <Router>
+      <Router basename="/TT-TF-React-Store-Project-JV">
         <App />
       </Router>
       </AuthProvider>
