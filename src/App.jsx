@@ -31,6 +31,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="*" element={<Home url={url} />} />
       </Routes>
       <ScrollToTopButton></ScrollToTopButton>
     </div>
