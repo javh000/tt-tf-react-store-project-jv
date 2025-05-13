@@ -1,14 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { useCart } from "../context/CartContext.jsx";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { addToCart } = useCart();
 
   const handleNavigate = () => {
     // Capturar ruta + querystring actuales
-    const fromPage = window.location.pathname + window.location.search;
+    const fromPage = location.pathname + location.search;
     navigate(`/products/${product.id}`, { state: { fromPage } });
   };
 
