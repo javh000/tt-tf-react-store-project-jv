@@ -2,11 +2,12 @@ import React from "react";
 import { Container, Button } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Dashboard() {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { role, isAuthenticated } = useAuth();
 
-  if (!user || user.role !== "admin") {
+  if (!isAuthenticated || role !== "admin") {
     return <Navigate to="/login" />;
   }
 
