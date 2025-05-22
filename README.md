@@ -38,6 +38,7 @@ Incluye funcionalidades como:
 1. Clona el repositorio:
 
    git clone https://github.com/javh000/tt-tf-react-store-project-jv.git
+   
    cd tt-tf-react-store-project-jv
    
 2. Instala las dependencias:
