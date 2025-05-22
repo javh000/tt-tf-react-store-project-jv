@@ -1,7 +1,7 @@
 # Trabajo Final - Talento Tech - React
 
 👤 **Autor:** Jaime Victorero
-🌐 **Deploy:** [https://javh000.github.io/TT-TF-React-Store-Project-JV/](https://javh000.github.io/TT-TF-React-Store-Project-JV/)
+🌐 **Deploy:** [https://javh000.github.io/tt-tf-react-store-project-jv/](https://javh000.github.io/tt-tf-react-store-project-jv/)
 
 ---
 
@@ -37,8 +37,8 @@ Incluye funcionalidades como:
 
 1. Clona el repositorio:
 
-   git clone https://github.com/javh000/TT-TF-React-Store-Project-JV.git
-   cd TT-TF-React-Store-Project-JV
+   git clone https://github.com/javh000/tt-tf-react-store-project-jv.git
+   cd tt-tf-react-store-project-jv
    
 2. Instala las dependencias:
 
