@@ -4,7 +4,7 @@ import useFetch from "../components/hooks/useFetch";
 import ProductList from "../components/ProductList";
 
 export default function DealPage({ url }) {
-  const { data } = useFetch(url);
+  const { data, loading, error } = useFetch(url);
 
   const deals =
     data?.products?.filter((product) => product.discountPercentage > 10) || [];
@@ -12,7 +12,12 @@ export default function DealPage({ url }) {
   return (
     <>
       <Header />
-      <ProductList url={url} title="Ofertas" customProducts={deals} />
+      <ProductList
+        title="Ofertas"
+        products={deals}
+        loading={loading}
+        error={error}
+      />
       <Footer />
     </>
   );
