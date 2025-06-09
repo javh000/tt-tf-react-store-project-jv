@@ -13,7 +13,7 @@ function ProductList({
 }) {
   const limit = 15;
   const [searchParams, setSearchParams] = useSearchParams();
-  const page = parseInt(searchParams.get("page")) || 0;
+  const page = parseInt(searchParams.get("page")) || 1;
 
   const goToPage = (newPage) => {
     setSearchParams({ page: newPage });
@@ -29,7 +29,7 @@ function ProductList({
   // Calcular paginación
   const total = products.length;
   const totalPages = Math.ceil(total / limit);
-  const startIndex = page * limit;
+  const startIndex = (page - 1) * limit;
   const paginatedProducts = products.slice(startIndex, startIndex + limit);
 
   if (loading) return <Spinner message="Cargando Productos..." />;
@@ -47,7 +47,7 @@ function ProductList({
       <div className="d-flex justify-content-center m-4 gap-5">
         <Button
           variant="primary"
-          disabled={page === 0}
+          disabled={page === 1}
           onClick={() => goToPage(page - 1)}
           className="d-flex align-items-center"
         >
@@ -55,7 +55,7 @@ function ProductList({
         </Button>
         <Button
           variant="primary"
-          disabled={page + 1 >= totalPages}
+          disabled={page >= totalPages}
           onClick={() => goToPage(page + 1)}
           className="d-flex align-items-center"
         >
