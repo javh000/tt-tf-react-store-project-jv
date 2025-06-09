@@ -8,6 +8,7 @@ import NewArrivalsPage from "./pages/NewArrivalsPage";
 import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import SearchResultPage from "./pages/SearchResultsPage";
 import "./App.css";
 
 const url = "https://dummyjson.com/products/";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetailPage />} />
         <Route path="/deals" element={<DealPage url={url} />} />
         <Route path="/new-arrivals" element={<NewArrivalsPage url={url} />} />
+        <Route path="/search" element={<SearchResultPage url={url} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/dashboard"

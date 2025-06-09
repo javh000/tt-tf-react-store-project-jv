@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useFetch from "./hooks/useFetch";
 import {
   Navbar,
@@ -16,6 +17,20 @@ import CartOffcanvas from "./CartOffcanvas";
 import logo from "../assets/logo.svg";
 
 function NavbarComponent() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim() === "") {
+      return; // Evitar búsqueda vacía
+    }
+    // Redirigir a la página de resultados de búsqueda
+    navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+    setSearchTerm(""); // Limpiar el campo de búsqueda
+  }
+
+
   // Estado para controlar en Offcanvas
   const [showCart, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -97,14 +112,16 @@ function NavbarComponent() {
                 </Nav.Link>
               </Nav>
 
-              <Form className="d-flex w-100 w-auto">
+              <Form className="d-flex w-100 w-auto" onSubmit={handleSearch}>
                 <FormControl
                   type="search"
                   placeholder="Buscar"
                   className="me-2"
                   aria-label="Search"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <Button variant="outline-success">Buscar</Button>
+                <Button type="submit" variant="outline-success">Buscar</Button>
               </Form>
             </div>
           </Navbar.Collapse>

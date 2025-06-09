@@ -16,7 +16,12 @@ function ProductList({
   const page = parseInt(searchParams.get("page")) || 1;
 
   const goToPage = (newPage) => {
-    setSearchParams({ page: newPage });
+    //  Copia de los parámetros actuales 
+    const newParams = new URLSearchParams(searchParams);
+    // Actualiza el parámetro 'page'
+    newParams.set("page", newPage);
+    // Aplica los parámetros actualizados parámetros a la URL
+    setSearchParams(newParams);
   };
 
   useEffect(() => {
