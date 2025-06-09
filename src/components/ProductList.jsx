@@ -20,7 +20,10 @@ function ProductList({
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 50); // pequeño retraso para asegurar que el scroll se aplique después de que el DOM se haya actualizado
+    return () => clearTimeout(timer);
   }, [page]);
 
   // Calcular paginación
