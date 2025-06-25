@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import Spinner from "../components/Spinner";
-import useFetch from "../components/hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 import {
   Container,
   Row,
