@@ -38,15 +38,17 @@ Incluye funcionalidades como:
 
 ## 🛠️ Estructura del proyecto
 
+```plaintext
 src/
-├── components/      # Componentes de UI (UserTable, ProductCard, etc.)
-├── pages/           # Páginas de React Router (Home, DealPage, Dashboard, etc.)
-├── hooks/           # Custom hooks (useUsers, useFetch)
-├── services/        # Lógica de llamadas a APIs solo usuarios (userService)
-├── context/         # Contextos globales (AuthContext, CartContext)
-├── utils/           # Funciones utilitarias (validación del formulario de usuarios)
-├── App.jsx          # Define las rutas principales y la estructura de la app
-└── main.jsx         # Monta la app en el DOM y configura el router
+├── components/   # Componentes de UI (UserTable, ProductCard, etc.)
+├── pages/        # Páginas de React Router (Home, DealPage, Dashboard, etc.)
+├── hooks/        # Custom hooks (useUsers, useFetch)
+├── services/     # Lógica de llamadas a APIs solo usuarios (userService)
+├── context/      # Contextos globales (AuthContext, CartContext)
+├── utils/        # Funciones utilitarias (validación del formulario de usuarios)
+├── App.jsx       # Define las rutas principales y la estructura de la app
+└── main.jsx      # Monta la app en el DOM y configura el router
+```
 
 Nota: La gestión de usuarios incluye operaciones CRUD (crear, leer, actualizar y eliminar). Esta funcionalidad está organizada separando las llamadas a la API en un archivo de servicios (userService) y el manejo del estado en un hook personalizado (useUsers).
 
