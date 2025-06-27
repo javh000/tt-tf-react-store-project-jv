@@ -42,7 +42,7 @@ function ProductList({
   if (total === 0) return <p>No hay productos disponibles.</p>;
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4" role="navigation" aria-label="Lista de productos">
       <h1 className="mb-4 text-center">{title}</h1>
       <div className="row">
         {paginatedProducts.map((product) => (
@@ -55,6 +55,7 @@ function ProductList({
           disabled={page === 1}
           onClick={() => goToPage(page - 1)}
           className="d-flex align-items-center"
+          aria-label="Ir a la página anterior"
         >
           <ChevronLeft /> Anterior
         </Button>
@@ -63,6 +64,7 @@ function ProductList({
           disabled={page >= totalPages}
           onClick={() => goToPage(page + 1)}
           className="d-flex align-items-center"
+          aria-label="Ir a la siguiente página"
         >
           Siguiente <ChevronRight />
         </Button>

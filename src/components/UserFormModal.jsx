@@ -37,7 +37,7 @@ export default function UserFormModal({ show, onHide, onSave, initialData }) {
   const handleRegenerate = () =>
     form.avatar.trim() || setTempAvatar(randomAvatar());
 
-//  Manejo del envío del formulario
+  //  Manejo del envío del formulario
   const handleSubmit = () => {
     const errs = {
       // Validaciones de los campos del formulario
@@ -60,9 +60,14 @@ export default function UserFormModal({ show, onHide, onSave, initialData }) {
   };
 
   return (
-    <Modal show={show} onHide={onHide} centered>
+    <Modal
+      show={show}
+      onHide={onHide}
+      centered
+      aria-labelledby="user-form-modal"
+    >
       <Modal.Header closeButton>
-        <Modal.Title>
+        <Modal.Title id="user-form-modal">
           {initialData ? "Editar Usuario" : "Nuevo Usuario"}
         </Modal.Title>
       </Modal.Header>
@@ -76,6 +81,8 @@ export default function UserFormModal({ show, onHide, onSave, initialData }) {
               value={form.name}
               onChange={handleChange}
               isInvalid={!!errors.name}
+              required
+              placeholder="Ej: Juan Pérez"
             />
             <Form.Control.Feedback type="invalid">
               {errors.name}
@@ -89,6 +96,9 @@ export default function UserFormModal({ show, onHide, onSave, initialData }) {
               value={form.email}
               onChange={handleChange}
               isInvalid={!!errors.email}
+              required
+              type="email"
+              
             />
             <Form.Control.Feedback type="invalid">
               {errors.email}
@@ -122,7 +132,9 @@ export default function UserFormModal({ show, onHide, onSave, initialData }) {
         <Button variant="secondary" onClick={onHide}>
           Cancelar
         </Button>
-        <Button variant="success" onClick={handleSubmit}>Guardar</Button>
+        <Button variant="success" onClick={handleSubmit}>
+          Guardar
+        </Button>
       </Modal.Footer>
     </Modal>
   );

@@ -28,8 +28,7 @@ function NavbarComponent() {
     // Redirigir a la página de resultados de búsqueda
     navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
     setSearchTerm(""); // Limpiar el campo de búsqueda
-  }
-
+  };
 
   // Estado para controlar en Offcanvas
   const [showCart, setShow] = useState(false);
@@ -42,29 +41,47 @@ function NavbarComponent() {
 
   return (
     <>
-      <Navbar bg="light" expand="lg" fixed="top" className="py-2">
+      <Navbar
+        bg="light"
+        expand="lg"
+        fixed="top"
+        className="py-2"
+        role="navigation"
+        aria-label="Navegación principal"
+      >
         <Container
           fluid
           className="d-flex align-items-center justify-content-between"
         >
-          <Navbar.Brand as={Link} to="/" style={{ width: '40%'}}>
-            <img style={{width: "100%"}} src={logo} alt="Novashade Logo" className="img-fluid logo-size" />
+          <Navbar.Brand as={Link} to="/" style={{ width: "40%" }}>
+            <img
+              style={{ width: "100%" }}
+              src={logo}
+              alt="Novashade Logo"
+              className="img-fluid logo-size"
+            />
           </Navbar.Brand>
 
           <div className="d-flex align-items-center gap-3 order-lg-3 mx-lg-4">
-            <CartWidget onClick={handleShow} />
+            <CartWidget
+              onClick={handleShow}
+              aria-label="Ver carrito de compras"
+            />
             <Nav.Link as={Link} to="/login">
               Login
             </Nav.Link>
             <Navbar.Toggle
               aria-controls="navbarScroll"
+              aria-label="Alternar menú de navegación"
               className="ms-2 d-lg-none"
             />
           </div>
 
           <Navbar.Collapse id="navbarScroll" className="order-lg-2 w-100">
             <div className="d-flex flex-column flex-lg-row align-items-center justify-content-between w-100 gap-3 ms-3">
-              <Nav className="d-flex flex-column flex-lg-row align-items-center gap-3">
+              <Nav className="d-flex flex-column flex-lg-row align-items-center gap-3"
+              role="menubar"
+              aria-label="Enlaces de navegación">
                 <NavDropdown title="Categorías" id="navbarScrollingDropdown">
                   <div style={{ maxHeight: "400px", overflowY: "auto" }}>
                     {loading && (
@@ -85,6 +102,7 @@ function NavbarComponent() {
                         as={Link}
                         to={`/categories/${category.name}`}
                         key={category.name}
+                        role="menuitem"
                       >
                         {category.name}
                       </NavDropdown.Item>
@@ -121,7 +139,9 @@ function NavbarComponent() {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <Button type="submit" variant="outline-success">Buscar</Button>
+                <Button type="submit" variant="outline-success">
+                  Buscar
+                </Button>
               </Form>
             </div>
           </Navbar.Collapse>

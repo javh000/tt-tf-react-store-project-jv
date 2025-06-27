@@ -14,7 +14,7 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="col-md-4 mb-4">
+    <div className="col-md-4 mb-4" role="region" aria-label={`Producto: ${product.title}`}>
       <Card className="h-100">
         <Card.Img
           variant="top"
@@ -26,10 +26,10 @@ function ProductCard({ product }) {
           <Card.Title>{product.title}</Card.Title>
           <Card.Text>{product.description}</Card.Text>
           <div className="mt-auto d-grid gap-2">
-            <Button variant="success" onClick={() => addToCart(product)}>
+            <Button variant="success" onClick={() => addToCart(product)} aria-label={`Agregar ${product.title} al carrito`}>
               Agregar al carrito
             </Button>
-            <Button variant="info" onClick={handleNavigate}>
+            <Button variant="info" onClick={handleNavigate} aria-label={`Ver detalles de ${product.title}`}>
               Ver
             </Button>
           </div>

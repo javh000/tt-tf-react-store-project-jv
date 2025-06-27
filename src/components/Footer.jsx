@@ -37,7 +37,7 @@ export default function Footer() {
 
   return (
     <Element name="footer">
-      <footer className="bg-dark text-light py-3">
+      <footer className="bg-dark text-light py-3" role="contentinfo">
         <Container>
           <Row className="text-center align-items-center flex-column flex-md-row gap-3 gap-md-0">
             <Col md={4} className="mb-2 mb-md-0">
@@ -73,11 +73,15 @@ export default function Footer() {
                     className="w-100 w-md-auto mb-2 mb-md-0"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    aria-label="Correo electrónico para suscribirse al newsletter"
+                    required
                   />
                   <Button
                     variant="primary"
                     type="submit"
                     className="w-100 w-md-auto"
+                    aria-label="Enviar suscripción al newsletter"
+                    disabled={!email.trim()}
                   >
                     Subscribirse
                   </Button>

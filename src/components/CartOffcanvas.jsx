@@ -5,7 +5,12 @@ export default function CartOffcanvas({ show, handleClose }) {
   const { cartItems, removeFromCart, clearCart } = useCart();
 
   return (
-    <Offcanvas show={show} onHide={handleClose} placement="end">
+    <Offcanvas
+      show={show}
+      onHide={handleClose}
+      placement="end"
+      aria-label="Carrito de compras"
+    >
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Tu Carrito</Offcanvas.Title>
       </Offcanvas.Header>
@@ -25,6 +30,7 @@ export default function CartOffcanvas({ show, handleClose }) {
                 <Button
                   variant="danger"
                   onClick={() => removeFromCart(item.id)}
+                  aria-label={`Eliminar ${item.title} del carrito`}
                 >
                   Eliminar
                 </Button>
@@ -32,7 +38,12 @@ export default function CartOffcanvas({ show, handleClose }) {
             ))}
           </ListGroup>
         )}
-        <Button variant="danger" className="mt-3" onClick={clearCart}>
+        <Button
+          variant="danger"
+          className="mt-3"
+          onClick={clearCart}
+          aria-label="Vaciar el carrito"
+        >
           Vaciar Carrito
         </Button>
       </Offcanvas.Body>
