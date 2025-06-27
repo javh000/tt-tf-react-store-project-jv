@@ -14,6 +14,7 @@ Incluye funcionalidades como:
 - Listado y filtrado de productos
 - Páginas de categorías y novedades
 - Vista de detalle por producto
+- Búsqueda de productos
 - Carrito de compras
 - Inicio de sesión (simulado)
 - Panel de usuario (dashboard protegido)
