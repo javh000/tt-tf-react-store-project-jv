@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import UsersContainer from "../components/UsersContainer";
+import { Helmet } from "react-helmet-async";
 
 function Dashboard() {
   const { role, isAuthenticated } = useAuth();
@@ -10,6 +11,13 @@ function Dashboard() {
 
   return (
     <>
+      <Helmet>
+        <title>Panel de Administración | Novashade</title>
+        <meta
+          name="description"
+          content="Administra los usuarios de tu tienda."
+        />
+      </Helmet>
       <Header />
       <UsersContainer />
       <Footer />

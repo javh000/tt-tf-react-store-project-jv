@@ -3,6 +3,7 @@ import useFetch from "../hooks/useFetch";
 import ProductList from "../components/ProductList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 export default function CategoriesPage() {
   const { categoryName } = useParams();
@@ -14,6 +15,14 @@ export default function CategoriesPage() {
 
   return (
     <>
+      <Helmet>
+        <title>{categoryName} | Novashade</title>
+        <meta
+          name="description"
+          content={`Explora nuestra colección de ${categoryName}.`}
+        />
+      </Helmet>
+      
       <Header />
       <ProductList
         products={categoryProducts}

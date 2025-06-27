@@ -15,7 +15,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useCart } from "../context/CartContext.jsx";
 import { useNavigate } from "react-router-dom";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -40,6 +41,14 @@ export default function ProductDetailPage() {
 
   return (
     <>
+      <Helmet>
+        <title>{product.title} | Novashade</title>
+        <meta
+          name="description"
+          content={`Detalles del producto: ${product.title}. Precio: $${product.price}.`}
+        />
+      </Helmet>
+
       <Header />
       <Container className="my-5 flex-grow-1 d-flex align-items-center justify-content-center">
         <Row className="justify-content-center flex-grow-1">

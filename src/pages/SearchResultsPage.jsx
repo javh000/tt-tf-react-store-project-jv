@@ -3,6 +3,7 @@ import useFetch from "../hooks/useFetch";
 import ProductList from "../components/ProductList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 
 export default function SearchResultsPage({ url }) {
   const { data, loading, error } = useFetch(`${url}?limit=0&skip=0`);
@@ -41,6 +42,14 @@ export default function SearchResultsPage({ url }) {
 
   return (
     <>
+      <Helmet>
+        <title>Resultados de búsqueda | Novashade</title>
+        <meta
+          name="description"
+          content={`Resultados de búsqueda para: ${searchTerm}`}
+        />
+      </Helmet>
+
       <Header />
       <ProductList
         products={filteredProducts}

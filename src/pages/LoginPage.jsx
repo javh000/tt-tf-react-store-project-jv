@@ -3,6 +3,7 @@ import { Form, Button, Container } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useAuth } from "../context/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 function LoginPage() {
   const [userInput, setUserInput] = useState("");
@@ -29,6 +30,15 @@ function LoginPage() {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Iniciar Sesión | Novashade</title>
+      <meta
+        name="description"
+        content="Inicia sesión para acceder a tu cuenta en Novashade."
+      />
+    </Helmet>
+
     <Container className="mt-5" style={{ maxWidth: "400px" }}>
       <h2 className="mb-4 text-center">Iniciar sesión</h2>
       <Form onSubmit={handleLogin}>
@@ -62,6 +72,7 @@ function LoginPage() {
         </Link>
       </Form>
     </Container>
+    </>
   );
 }
 

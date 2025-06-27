@@ -6,15 +6,18 @@ import App from "./App.jsx";
 import "bootswatch/dist/sandstone/bootstrap.min.css";
 import { CartProvider } from "./context/CartContext.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <CartProvider>
-      <AuthProvider>
-      <Router>
-        <App />
-      </Router>
-      </AuthProvider>
-    </CartProvider>
+    <HelmetProvider>
+      <CartProvider>
+        <AuthProvider>
+          <Router>
+            <App />
+          </Router>
+        </AuthProvider>
+      </CartProvider>
+    </HelmetProvider>
   </StrictMode>
 );

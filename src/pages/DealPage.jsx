@@ -2,6 +2,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import useFetch from "../hooks/useFetch";
 import ProductList from "../components/ProductList";
+import { Helmet } from "react-helmet-async";
 
 export default function DealPage({ url }) {
   const { data, loading, error } = useFetch(url);
@@ -11,6 +12,14 @@ export default function DealPage({ url }) {
 
   return (
     <>
+      <Helmet>
+        <title>Ofertas | Novashade</title>
+        <meta
+          name="description"
+          content="Descubre nuestras ofertas especiales y ahorra en tus compras."
+        />
+      </Helmet>
+
       <Header />
       <ProductList
         title="Ofertas"
