@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Row, Col, Form, Button, ListGroup } from "react-bootstrap";
 import Swal from "sweetalert2";
 import SocialLinks from "./SocialLinks.jsx";

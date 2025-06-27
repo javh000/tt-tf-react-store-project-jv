@@ -1,4 +1,3 @@
-import React from "react";
 import { SiFacebook, SiInstagram, SiWhatsapp } from "react-icons/si";
 import { ListGroup } from "react-bootstrap";
 
