@@ -34,7 +34,7 @@ export default function UsersContainer() {
 
   return (
     <Container className="mt-4">
-      <h1 className="mb-4 text-center">Panel de usuarios</h1>
+      <h1 className="mb-4 text-center">Gestionar usuarios</h1>
       <div className="d-flex justify-content-between mb-3">
         <Button variant="info" onClick={()=> Navigate("/")}>Inicio</Button>
         <Button variant="success" onClick={handleNew}>Nuevo Usuario</Button>

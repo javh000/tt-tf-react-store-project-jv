@@ -23,8 +23,10 @@ function ProductCard({ product }) {
           style={{ height: "200px", objectFit: "contain" }}
         />
         <Card.Body className="d-flex flex-column text-center">
-          <Card.Title>{product.title}</Card.Title>
-          <Card.Text>{product.description}</Card.Text>
+          <Card.Title className="fw-bold mb-4">{product.title}</Card.Title>
+          <Card.Text>
+            Precio: <strong>${product.price.toFixed(2)}</strong>
+          </Card.Text>
           <div className="mt-auto d-grid gap-2">
             <Button variant="success" onClick={() => addToCart(product)} aria-label={`Agregar ${product.title} al carrito`}>
               Agregar al carrito

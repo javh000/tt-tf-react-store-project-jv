@@ -14,11 +14,14 @@ import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import CartWidget from "./CartWidget";
 import CartOffcanvas from "./CartOffcanvas";
-import logo from "../assets/logo.svg";
+import logoDesktop from "../assets/logo.svg";
+import logoMobile from "../assets/logo_mobile.png";
+import { FiMenu, FiX } from "react-icons/fi";
 
 function NavbarComponent() {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const [expanded, setExpanded] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -46,6 +49,8 @@ function NavbarComponent() {
         expand="lg"
         fixed="top"
         className="py-2"
+        expanded={expanded}
+        onToggle={() => setExpanded(!expanded)}
         role="navigation"
         aria-label="Navegación principal"
       >
@@ -55,10 +60,16 @@ function NavbarComponent() {
         >
           <Navbar.Brand as={Link} to="/" style={{ width: "40%" }}>
             <img
-              style={{ width: "100%" }}
-              src={logo}
-              alt="Novashade Logo"
-              className="img-fluid logo-size"
+              src={logoDesktop}
+              alt="Logo Desktop"
+              className="d-none d-md-block"
+              style={{ height: "40px", objectFit: "contain" }}
+            />
+            <img
+              src={logoMobile}
+              alt="Logo Mobile"
+              className="d-block d-md-none"
+              style={{ height: "32px", objectFit: "contain" }}
             />
           </Navbar.Brand>
 
@@ -74,14 +85,18 @@ function NavbarComponent() {
               aria-controls="navbarScroll"
               aria-label="Alternar menú de navegación"
               className="ms-2 d-lg-none"
-            />
+            >
+              {expanded ? <FiX size={24} /> : <FiMenu size={24} />}
+            </Navbar.Toggle>
           </div>
 
           <Navbar.Collapse id="navbarScroll" className="order-lg-2 w-100">
             <div className="d-flex flex-column flex-lg-row align-items-center justify-content-between w-100 gap-3 ms-3">
-              <Nav className="d-flex flex-column flex-lg-row align-items-center gap-3"
-              role="menubar"
-              aria-label="Enlaces de navegación">
+              <Nav
+                className="d-flex flex-column flex-lg-row align-items-center gap-3"
+                role="menubar"
+                aria-label="Enlaces de navegación"
+              >
                 <NavDropdown title="Categorías" id="navbarScrollingDropdown">
                   <div style={{ maxHeight: "400px", overflowY: "auto" }}>
                     {loading && (
@@ -125,6 +140,7 @@ function NavbarComponent() {
                   smooth={true}
                   duration={1000}
                   style={{ cursor: "pointer" }}
+                  onClick={() => setExpanded(false)}
                 >
                   Contacto
                 </Nav.Link>
