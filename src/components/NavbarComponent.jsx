@@ -21,7 +21,9 @@ import { FiMenu, FiX } from "react-icons/fi";
 function NavbarComponent() {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+
   const [expanded, setExpanded] = useState(false);
+  const handleCloseMenu = () => setExpanded(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -117,6 +119,7 @@ function NavbarComponent() {
                         as={Link}
                         to={`/categories/${category.name}`}
                         key={category.name}
+                        onClick={handleCloseMenu}
                         role="menuitem"
                       >
                         {category.name}
@@ -140,7 +143,7 @@ function NavbarComponent() {
                   smooth={true}
                   duration={1000}
                   style={{ cursor: "pointer" }}
-                  onClick={() => setExpanded(false)}
+                  onClick={handleCloseMenu}
                 >
                   Contacto
                 </Nav.Link>
