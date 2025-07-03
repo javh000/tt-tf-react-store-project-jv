@@ -43,10 +43,10 @@ function LoginPage() {
       <h2 className="mb-4 text-center">Iniciar sesión</h2>
       <Form onSubmit={handleLogin}>
         <Form.Group controlId="formUser" className="mb-3">
-          <Form.Label>Usuario</Form.Label>
+          <Form.Label>Usuario (admin o cliente)</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Ingresa tu usuario (admin o cliente)"
+            placeholder="Ingresa como admin para acceder al dashboard"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             required
