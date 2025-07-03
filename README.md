@@ -15,6 +15,7 @@ Incluye funcionalidades como:
 - Páginas de categorías y novedades
 - Vista de detalle por producto
 - Búsqueda de productos
+- Paginación con query params que mantiene el estado en la URL y permite navegación con historial
 - Carrito de compras
 - Inicio de sesión (simulado)
 - Panel de usuario (dashboard protegido)
@@ -50,7 +51,7 @@ src/
 └── main.jsx      # Monta la app en el DOM y configura el router
 ```
 
-Nota: La gestión de usuarios incluye operaciones CRUD (crear, leer, actualizar y eliminar). Esta funcionalidad está organizada separando las llamadas a la API en un archivo de servicios (userService) y el manejo del estado en un hook personalizado (useUsers).
+Nota: La gestión de usuarios incluye operaciones CRUD (crear, leer, actualizar y eliminar). Esta funcionalidad está organizada separando las llamadas a la API en un archivo de servicios (userService) y el manejo del estado en un hook personalizado (useUsers). Para acceder a la gestión de usuarios, iniciar sesión como **admin** con contraseña **123**.
 
 ---
 
